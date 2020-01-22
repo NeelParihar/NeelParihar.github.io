@@ -39,7 +39,7 @@ input[type=submit] {
 }
 
 input[type=submit]:hover {
-  background-color: #45a049;
+  background-color:#747474;
 }
 
 div {
@@ -131,6 +131,8 @@ body {
         <textarea  cols="50" id="body"></textarea>
         <br>
         <input type="submit" value="Send" onclick="sendEmail()">
+        <br>
+        <p id=display></p>
       
   
       
@@ -144,7 +146,7 @@ body {
 
 <script type="text/javascript">
   function sendEmail() {
-
+    var display= document.getElementById("display");
     var emails= document.getElementById("emails").value;
     emails=emails.split(",");
     var subject= document.getElementById("subject").value;
@@ -160,7 +162,7 @@ body {
         Subject : subject,
         Body : body,
 }).then(function(message){
-      alert("mail sent successfully")
+      display.innerHTML=element+" Email sent <br>"
     });
       
     });
